@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Roushni Kumari | Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6a11cb",
+              secondary: "#2575fc",
+              accent: "#ff4d4d",
+              text: "#333",
+              light: "#f8f9fa",
+              dark: "#212529",
+            },
+            fontFamily: {
+              poppins: ["Poppins", "sans-serif"],
+            },
+            backgroundImage: {
+              gradient: "linear-gradient(135deg, #6a11cb, #2575fc)",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .bg-gradient {
+          background: linear-gradient(135deg, #6a11cb, #2575fc);
+        }
+
+        .text-gradient {
+          @apply bg-gradient bg-clip-text text-transparent;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+
+        .typewriter-container {
+          @apply inline-block overflow-hidden border-r-2 border-primary whitespace-nowrap;
+          animation: typing 2s steps(15) 1s forwards,
+            blink 0.7s step-end infinite;
+        }
+
+        @keyframes typing {
+          from {
+            width: 0;
+          }
+          to {
+            width: 15ch;
+          }
+        }
+
+        @keyframes blink {
+          50% {
+            border-color: transparent;
+          }
+        }
+
+        .timeline::before {
+          content: "";
+          @apply absolute top-0 left-1/2 -translate-x-1/2 w-0.5 h-full bg-gradient;
+        }
+
+        .timeline-content::before {
+          content: "";
+          @apply absolute top-8 -right-2 w-5 h-5 bg-white rotate-45;
+          box-shadow: 5px -5px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::before {
+          @apply -left-2 right-auto;
+          box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        @media (max-width: 1024px) {
+          .timeline::before {
+            @apply left-8;
+          }
+          .timeline-content {
+            @apply w-[calc(100%-80px)] ml-20;
+          }
+          .timeline-item:nth-child(even) .timeline-content {
+            @apply ml-20;
+          }
+          .timeline-content::before {
+            @apply -left-2 right-auto;
+            box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.05);
+          }
+          .timeline-item:nth-child(odd) .timeline-date,
+          .timeline-item:nth-child(even) .timeline-date {
+            @apply left-0 right-auto top-[-25px];
+          }
+        }
+
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeInDown {
+          from {
+            opacity: 0;
+            transform: translateY(-20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeInLeft {
+          from {
+            opacity: 0;
+            transform: translateX(-50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @keyframes fadeInRight {
+          from {
+            opacity: 0;
+            transform: translateX(50px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+      }
+    </style>
+  </head>
+  <body class="font-poppins text-text bg-light overflow-x-hidden">
+    <!-- Header -->
+    <header
+      class="fixed top-0 left-0 w-full z-[1000] transition-all duration-300 bg-white/90 backdrop-blur-md shadow-md"
+    >
+      <div class="h-20 flex justify-between items-center px-[5%]">
+        <div
+          class="flex items-center gap-4 hover:scale-[1.02] transition-all duration-300"
+        >
+          <div
+            class="w-10 h-10 rounded-full bg-gradient flex justify-center items-center text-white font-bold text-lg transition-all duration-300"
+          >
+            R
+          </div>
+          <div
+            class="text-2xl font-bold text-gradient transition-all duration-300"
+          >
+            Roushni Kumari
+          </div>
+        </div>
+
+        <div class="flex gap-8">
+          <a
+            href="#home"
+            class="text-base font-medium relative py-1 transition-all duration-300 text-text hover:text-gradient after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient after:transition-all after:duration-300 hover:after:w-full"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="text-base font-medium relative py-1 transition-all duration-300 text-text hover:text-gradient after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient after:transition-all after:duration-300 hover:after:w-full"
+            >About</a
+          >
+          <a
+            href="#projects"
+            class="text-base font-medium relative py-1 transition-all duration-300 text-text hover:text-gradient after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient after:transition-all after:duration-300 hover:after:w-full"
+            >Projects</a
+          >
+          <a
+            href="#skills"
+            class="text-base font-medium relative py-1 transition-all duration-300 text-text hover:text-gradient after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient after:transition-all after:duration-300 hover:after:w-full"
+            >Skills</a
+          >
+          <a
+            href="#education"
+            class="text-base font-medium relative py-1 transition-all duration-300 text-text hover:text-gradient after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient after:transition-all after:duration-300 hover:after:w-full"
+            >Education</a
+          >
+          <a
+            href="#contact"
+            class="text-base font-medium relative py-1 transition-all duration-300 text-text hover:text-gradient after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-gradient after:transition-all after:duration-300 hover:after:w-full"
+            >Contact</a
+          >
+        </div>
+
+        <div class="hidden text-2xl cursor-pointer z-[1001]">☰</div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      class="min-h-screen flex items-center px-[5%] relative overflow-hidden"
+      id="home"
+    >
+      <div class="flex-1 z-[2]">
+        <div class="text-2xl mb-2 text-primary">Yo, I am</div>
+        <h1 class="text-6xl font-bold mb-5 text-gradient">Roushni Kumari</h1>
+        <div
+          class="typewriter-container text-xl font-semibold bg-clip-text text-transparent bg-gradient-to-r from-accent to-yellow-400"
+        >
+          Graphic Designer
+        </div>
+
+        <p class="text-lg leading-relaxed mb-8 max-w-[600px] mt-6">
+          I am a CS student currently pursuing Diploma at DSEU. I am passionate
+          about Coding, Poster Design, Painting, Art & Craft. Technology excites
+          me and I'm always eager to develop my skills.
+        </p>
+        <a
+          href="roushni-cv.png"
+          class="inline-block px-8 py-4 bg-gradient text-white rounded-full font-semibold shadow-lg shadow-primary/30 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/40"
+          download
+          >Download CV</a
+        >
+        <div class="flex gap-5 mt-8">
+          <a
+            href="#"
+            class="w-10 h-10 rounded-full flex justify-center items-center bg-white text-primary shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-gradient hover:text-white hover:shadow-lg"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="#"
+            class="w-10 h-10 rounded-full flex justify-center items-center bg-white text-primary shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-gradient hover:text-white hover:shadow-lg"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+          <a
+            href="#"
+            class="w-10 h-10 rounded-full flex justify-center items-center bg-white text-primary shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-gradient hover:text-white hover:shadow-lg"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="#"
+            class="w-10 h-10 rounded-full flex justify-center items-center bg-white text-primary shadow-md transition-all duration-300 hover:-translate-y-1 hover:bg-gradient hover:text-white hover:shadow-lg"
+            ><i class="fab fa-twitter"></i
+          ></a>
+        </div>
+      </div>
+      <div class="flex-1 flex justify-center items-center relative z-[1]">
+        <div
+          class="w-[400px] h-[500px] bg-[url('roushni.png')] bg-center bg-cover bg-no-repeat rounded-3xl overflow-hidden transform-style-preserve-3d shadow-xl transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+        ></div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="py-24 px-[5%] bg-white relative" id="about">
+      <h2 class="text-5xl font-bold text-center mb-16 text-gradient">
+        About Me
+      </h2>
+      <div class="flex items-center gap-12 max-w-[1200px] mx-auto">
+        <div class="flex-1">
+          <p class="text-base leading-loose mb-5 text-gray-600">
+            I'm a quick learner and love making posters. Technology excites me
+            and I'm always eager to develop my skills and knowledge in Web
+            Development, UI/UX, Graphic Design, Illustrator, and Linux OS.
+          </p>
+          <p class="text-base leading-loose mb-5 text-gray-600">
+            I have a creative mindset with a passion for designing visually
+            appealing content. My journey in tech started when I was in school
+            and since then I've been constantly learning and improving my
+            skills.
+          </p>
+          <div class="mt-8">
+            <div class="flex items-center mb-4">
+              <div
+                class="w-10 h-10 rounded-full bg-gradient flex justify-center items-center text-white mr-4 flex-shrink-0"
+              >
+                <i class="fas fa-paint-brush"></i>
+              </div>
+              <div class="text-base text-gray-600">
+                Passionate about digital art and graphic design
+              </div>
+            </div>
+            <div class="flex items-center mb-4">
+              <div
+                class="w-10 h-10 rounded-full bg-gradient flex justify-center items-center text-white mr-4 flex-shrink-0"
+              >
+                <i class="fas fa-code"></i>
+              </div>
+              <div class="text-base text-gray-600">
+                Enjoy solving problems through coding
+              </div>
+            </div>
+            <div class="flex items-center mb-4">
+              <div
+                class="w-10 h-10 rounded-full bg-gradient flex justify-center items-center text-white mr-4 flex-shrink-0"
+              >
+                <i class="fas fa-lightbulb"></i>
+              </div>
+              <div class="text-base text-gray-600">
+                Always learning new technologies and skills
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1 flex justify-center items-center relative z-[1]">
+          <div
+            class="w-[400px] h-[500px] bg-[url('roushni.png')] bg-center bg-cover bg-no-repeat rounded-2xl overflow-hidden transform-style-preserve-3d shadow-lg transition-all duration-500 hover:rotate-y-6 hover:rotate-x-3"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-24 px-[5%] bg-gray-50 relative" id="skills">
+      <h2 class="text-5xl font-bold text-center mb-16 text-gradient">
+        My Skills
+      </h2>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1200px] mx-auto"
+      >
+        <div
+          class="bg-white rounded-2xl p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
+        >
+          <h3
+            class="text-2xl font-semibold mb-5 text-primary flex items-center"
+          >
+            <i class="fas fa-paint-brush mr-2 text-xl"></i> Design
+          </h3>
+          <div class="mb-4">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>Graphic Design</span>
+              <span>90%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                class="h-full bg-gradient rounded-full"
+                style="width: 90%"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>UI/UX Design</span>
+              <span>85%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                class="h-full bg-gradient rounded-full"
+                style="width: 85%"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>Poster Design</span>
+              <span>95%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                class="h-full bg-gradient rounded-full"
+                style="width: 95%"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>Illustration</span>
+              <span>80%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                class="h-full bg-gradient rounded-full"
+                style="width: 80%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
+        >
+          <h3
+            class="text-2xl font-semibold mb-5 text-primary flex items-center"
+          >
+            <i class="fas fa-code mr-2 text-xl"></i> Development
+          </h3>
+          <div class="mb-4">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>HTML/CSS</span>
+              <span>85%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                class="h-full bg-gradient rounded-full"
+                style="width: 85%"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>JavaScript</span>
+              <span>75%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                class="h-full bg-gradient rounded-full"
+                style="width: 75%"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>Python</span>
+              <span>70%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                class="h-full bg-gradient rounded-full"
+                style="width: 70%"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>Linux</span>
+              <span>80%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                class="h-full bg-gradient rounded-full"
+                style="width: 80%"
+              ></div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl p-8 shadow-md transition-all duration-300 hover:-translate-y-2 hover:shadow-lg"
+        >
+          <h3
+            class="text-2xl font-semibold mb-5 text-primary flex items-center"
+          >
+            <i class="fas fa-star mr-2 text-xl"></i> Other Skills
+          </h3>
+          <div class="mb-4">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>Painting</span>
+              <span>90%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                class="h-full bg-gradient rounded-full"
+                style="width: 90%"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>Art & Craft</span>
+              <span>85%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                class="h-full bg-gradient rounded-full"
+                style="width: 85%"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>Rifle Shooting</span>
+              <span>75%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                class="h-full bg-gradient rounded-full"
+                style="width: 75%"
+              ></div>
+            </div>
+          </div>
+          <div class="mb-4">
+            <div class="flex justify-between text-sm font-medium mb-1">
+              <span>Photography</span>
+              <span>80%</span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div
+                class="h-full bg-gradient rounded-full"
+                style="width: 80%"
+              ></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="py-24 px-[5%] relative" id="projects">
+      <h2 class="text-5xl font-bold text-center mb-16 text-gradient">
+        My Projects
+      </h2>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-[1200px] mx-auto"
+      >
+        <div
+          class="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-500 hover:-translate-y-2 hover:rotate-y-1 hover:rotate-x-1 hover:shadow-lg"
+        >
+          <div class="h-64 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+              alt="Project 1"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">RC Explore</h3>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span
+                class="px-3 py-1 bg-gray-200 rounded-full text-xs text-gray-600"
+                >Web Design</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-200 rounded-full text-xs text-gray-600"
+                >UI/UX</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-200 rounded-full text-xs text-gray-600"
+                >Development</span
+              >
+            </div>
+            <p class="text-sm text-gray-600 mb-5 leading-relaxed">
+              A comprehensive travel exploration platform with interactive maps,
+              itinerary planning, and community features.
+            </p>
+            <a
+              href="#"
+              class="inline-block px-5 py-2 bg-gradient text-white rounded-full text-sm font-medium shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >View Project</a
+            >
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-500 hover:-translate-y-2 hover:rotate-y-1 hover:rotate-x-1 hover:shadow-lg"
+        >
+          <div class="h-64 overflow-hidden">
+            <img
+              src="project2.jpeg"
+              alt="Project 2"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Art Gallery</h3>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span
+                class="px-3 py-1 bg-gray-200 rounded-full text-xs text-gray-600"
+                >Graphic Design</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-200 rounded-full text-xs text-gray-600"
+                >Illustration</span
+              >
+            </div>
+            <p class="text-sm text-gray-600 mb-5 leading-relaxed">
+              Digital art gallery showcasing my paintings and illustrations with
+              interactive viewing features.
+            </p>
+            <a
+              href="#"
+              class="inline-block px-5 py-2 bg-gradient text-white rounded-full text-sm font-medium shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >View Project</a
+            >
+          </div>
+        </div>
+
+        <div
+          class="bg-white rounded-2xl overflow-hidden shadow-md transition-all duration-500 hover:-translate-y-2 hover:rotate-y-1 hover:rotate-x-1 hover:shadow-lg"
+        >
+          <div class="h-64 overflow-hidden">
+            <img
+              src="project1.jpeg"
+              alt="Project 3"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+          </div>
+          <div class="p-6">
+            <h3 class="text-xl font-semibold mb-2">Graphic design</h3>
+            <div class="flex flex-wrap gap-2 mb-5">
+              <span
+                class="px-3 py-1 bg-gray-200 rounded-full text-xs text-gray-600"
+                >Graphic Design</span
+              >
+              <span
+                class="px-3 py-1 bg-gray-200 rounded-full text-xs text-gray-600"
+                >Colour design</span
+              >
+            </div>
+            <p class="text-sm text-gray-600 mb-5 leading-relaxed">
+              A graphic design of watch with color pschology and color gradient.
+            </p>
+            <a
+              href="#"
+              class="inline-block px-5 py-2 bg-gradient text-white rounded-full text-sm font-medium shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >View Project</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section class="py-24 px-[5%] bg-gray-50" id="education">
+      <h2 class="text-5xl font-bold text-center mb-16 text-gradient">
+        My Education
+      </h2>
+      <div class="relative max-w-[1000px] mx-auto">
+        <div class="timeline">
+          <div class="timeline-item flex justify-between mb-12">
+            <div
+              class="w-[calc(50%-40px)] p-8 bg-white rounded-lg shadow-md relative transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+            >
+              <div
+                class="absolute top-5 -right-40 w-32 px-3 py-1 bg-gradient text-white rounded-full text-xs font-medium text-center"
+              >
+                2024 - Present
+              </div>
+              <h3 class="text-xl font-semibold mb-2 text-primary">
+                Diploma in Computer Science
+              </h3>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Currently pursuing my diploma at Delhi Skill and
+                Entrepreneurship University (DSEU). Learning programming, web
+                development, database management, and other computer science
+                fundamentals.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item flex justify-between mb-12">
+            <div
+              class="w-[calc(50%-40px)] p-8 bg-white rounded-lg shadow-md relative transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ml-auto"
+            >
+              <div
+                class="absolute top-5 -left-40 w-32 px-3 py-1 bg-gradient text-white rounded-full text-xs font-medium text-center"
+              >
+                2023 - 2024
+              </div>
+              <h3 class="text-xl font-semibold mb-2 text-primary">
+                Secondary Education
+              </h3>
+              <p class="text-sm text-gray-600 leading-relaxed">
+                Completed my 10th grade with excellent marks. Discovered my
+                interest in technology and design during this period.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="py-24 px-[5%] bg-white" id="contact">
+      <h2 class="text-5xl font-bold text-center mb-16 text-gradient">
+        Get In Touch
+      </h2>
+      <div class="flex flex-col lg:flex-row gap-12 max-w-[1200px] mx-auto">
+        <div class="flex-1">
+          <h3 class="text-4xl font-bold mb-5 text-gradient">Let's Connect</h3>
+          <p class="text-base text-gray-600 leading-relaxed mb-8">
+            Have a project in mind or want to discuss potential opportunities?
+            Feel free to reach out to me. I'm always open to new ideas and
+            collaborations.
+          </p>
+          <div class="flex flex-col gap-5">
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient flex justify-center items-center text-white text-xl mr-5 flex-shrink-0"
+              >
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div>
+                <div class="text-sm text-gray-500">Email</div>
+                <div class="text-base font-medium">roushni@example.com</div>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient flex justify-center items-center text-white text-xl mr-5 flex-shrink-0"
+              >
+                <i class="fas fa-phone"></i>
+              </div>
+              <div>
+                <div class="text-sm text-gray-500">Phone</div>
+                <div class="text-base font-medium">+91 9876543210</div>
+              </div>
+            </div>
+            <div class="flex items-center">
+              <div
+                class="w-12 h-12 rounded-full bg-gradient flex justify-center items-center text-white text-xl mr-5 flex-shrink-0"
+              >
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div>
+                <div class="text-sm text-gray-500">Location</div>
+                <div class="text-base font-medium">New Delhi, India</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex-1">
+          <form id="contactForm">
+            <div class="mb-5">
+              <label
+                for="name"
+                class="block text-sm font-medium mb-2 text-gray-600"
+                >Your Name</label
+              >
+              <input
+                type="text"
+                id="name"
+                class="w-full px-4 py-4 border border-gray-300 rounded-lg text-base focus:border-primary focus:ring-3 focus:ring-primary/10 outline-none transition-all duration-300"
+                required
+              />
+            </div>
+            <div class="mb-5">
+              <label
+                for="email"
+                class="block text-sm font-medium mb-2 text-gray-600"
+                >Your Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                class="w-full px-4 py-4 border border-gray-300 rounded-lg text-base focus:border-primary focus:ring-3 focus:ring-primary/10 outline-none transition-all duration-300"
+                required
+              />
+            </div>
+            <div class="mb-5">
+              <label
+                for="message"
+                class="block text-sm font-medium mb-2 text-gray-600"
+                >Your Message</label
+              >
+              <textarea
+                id="message"
+                class="w-full px-4 py-4 border border-gray-300 rounded-lg text-base focus:border-primary focus:ring-3 focus:ring-primary/10 outline-none transition-all duration-300 h-36"
+                required
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="w-full px-6 py-4 bg-gradient text-white rounded-full font-semibold shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/30"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white pt-12 pb-6 px-[5%] text-center">
+      <div class="max-w-[1200px] mx-auto">
+        <div class="text-3xl font-bold mb-5 text-gradient">Roushni Kumari</div>
+        <div class="flex justify-center gap-8 mb-8">
+          <a
+            href="#about"
+            class="text-gray-400 hover:text-gradient transition-all duration-300"
+            >About</a
+          >
+          <a
+            href="#skills"
+            class="text-gray-400 hover:text-gradient transition-all duration-300"
+            >Skills</a
+          >
+          <a
+            href="#projects"
+            class="text-gray-400 hover:text-gradient transition-all duration-300"
+            >Projects</a
+          >
+          <a
+            href="#education"
+            class="text-gray-400 hover:text-gradient transition-all duration-300"
+            >Education</a
+          >
+          <a
+            href="#contact"
+            class="text-gray-400 hover:text-gradient transition-all duration-300"
+            >Contact</a
+          >
+        </div>
+        <div class="flex justify-center gap-5 mb-8">
+          <a
+            href="#"
+            class="w-10 h-10 rounded-full bg-white/10 flex justify-center items-center text-white transition-all duration-300 hover:bg-gradient hover:-translate-y-1"
+          >
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a
+            href="#"
+            class="w-10 h-10 rounded-full bg-white/10 flex justify-center items-center text-white transition-all duration-300 hover:bg-gradient hover:-translate-y-1"
+          >
+            <i class="fab fa-linkedin"></i>
+          </a>
+          <a
+            href="#"
+            class="w-10 h-10 rounded-full bg-white/10 flex justify-center items-center text-white transition-all duration-300 hover:bg-gradient hover:-translate-y-1"
+          >
+            <i class="fab fa-github"></i>
+          </a>
+          <a
+            href="#"
+            class="w-10 h-10 rounded-full bg-white/10 flex justify-center items-center text-white transition-all duration-300 hover:bg-gradient hover:-translate-y-1"
+          >
+            <i class="fab fa-twitter"></i>
+          </a>
+        </div>
+        <div class="text-sm text-gray-500">
+          &copy; 2023 Roushni Kumari. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
